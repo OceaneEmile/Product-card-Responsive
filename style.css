@@ -1,20 +1,183 @@
 /*For all the styles that are not specific to a component I use root*/
+/* Define global variables for font families, font weights, and colors */
 :root {
-    /*font-family*/
-    --font-title: 'Montserrat', serif;
-    --font-text: 'Fraunces', sans-serif;
+    /* Font families */
+    --ff-title: 'Montserrat', serif; 
+    --ff-text: 'Fraunces', sans-serif; 
 
-    /* font-size: */
-    --fw-m : 500;
-    --fw-b : 700;
+    /* Font weights */
+    --fw-m: 500; /* Medium font weight */
+    --fw-b: 700; /* Bold font weight */
 
-    /* colors */
-    /* Primary */
-    --clr-dark-cyan: hsl(158, 36%, 37%);
-    --clr-cream: hsl(30, 38%, 92%);
- 
-    /* Neutral */
-    --clr-neutral-very-dark-blue: hsl(212, 21%, 14%);
-    --clr-neutral-dark-grayish-blue: hsl(228, 12%, 48%);
-    --clr-neutral-white: hsl(0, 0%, 100%);
+    /* Colors */
+    /* Primary colors */
+    --clr-dark-cyan: hsl(158, 36%, 37%); 
+    --clr-cream: hsl(30, 38%, 92%); 
+
+    /* Neutral colors */
+    --clr-neutral-very-dark-blue: hsl(212, 21%, 14%); 
+    --clr-neutral-dark-grayish-blue: hsl(228, 12%, 48%); 
+    --clr-neutral-white: hsl(0, 0%, 100%); 
+}
+/* General styles */
+/* Reset margin, padding, and box-sizing for all elements : no padding and margin */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Inherit font properties from the parent element like font family, font weight, font size..*/
+* {
+    font: inherit;
+}
+
+/* Ensure images  are displayed properly */
+img {
+    display: block; 
+    max-width: 100%;
+    object-fit: contain; /*scale the content of the element, maintaining its aspect ratio*/
+}
+
+/* Apply general styles to the HTML element (all the text)*/
+html {
+    font-family: var(--ff-text); /* MDN DOC : The var() CSS function can be used to insert the value of a custom property (sometimes called a "CSS variable") instead of any part of a value of another property.*/
+    font-size: 16px; 
+    font-weight: var(--fw-m); /* Use medium font weight */
+    line-height: 1.5; /*sets the spacing between lines of text */
+    color: var(--clr-neutral-dark-grayish-blue); /* text in grayish blue */
+}
+
+/* Apply styles to headings */
+h1 {
+    line-height: 1; /* space between h1 */
+}
+
+/* MAIN */
+/* Apply styles to the main section of the page */
+main {
+    display: grid; /* create a grid container*/
+    place-content: center; /* Center content grid items horizontally and vertically in a grid container */
+    background-color: var(--clr-cream); 
+    min-height: 100vh; /* Set minimum height to 100% of viewport height */
+}
+
+/*For the image*/
+/* Apply styles to the card element with class */
+.card {
+    background-color: var(--clr-neutral-white); /* Use neutral white background color */
+    width: 90%; /* Set width to 90% */
+    max-width: 760px; /* Set maximum width to 700 pixels */
+    margin-inline: auto; /* Center horizontally */
+    border-radius: 10px; /* Set border radius */
+}
+
+/* Apply styles to the mobile image */
+.card-img-mobile {
+    border-radius: 10px 10px 0 0; /* Set border radius for mobile image */
+}
+
+/* Apply styles to the desktop image */
+.card-img-desktop {
+    display: none; /* Hide desktop image by default */
+}
+
+/* Apply styles to the text within the card */
+.card-text {
+    padding-block: 2rem; /* Set padding */
+    width: 80%; /* Set width */
+    margin-inline: auto; /* Center horizontally */
+    
+}
+
+/* Apply styles to the product type */
+.product-type {
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: .25em; /* Set letter spacing */
+}
+
+/* Apply styles to the product name */
+.product-name {
+    font-family: var(--ff-title); /* Use title font family */
+    font-size: 27px ; 
+    color: var(--clr-neutral-very-dark-blue); /* Use very dark blue color */
+    font-weight: var(--fw-b); /* Use bold font weight */
+    margin-block-start: .5rem; /* Set top margin */
+    margin-block-end: 1rem; /* Set bottom margin */
+}
+
+/* Apply styles to the product description */
+.product-description {
+    margin-block-end: 1.5rem; /* Set bottom margin */
+}
+
+/* Apply styles to the product prices */
+.product-prices {
+    display: flex; /* Use flex layout */
+    align-items: center; /* Align items vertically */
+    gap: 1rem; /* Set gap between elements */
+    margin-block-end: 1rem; /* Set bottom margin */
+}
+
+/* Apply styles to the current price */
+.current-price {
+    font-family: var(--ff-text); 
+    font-weight: var(--fw-b); /* Use bold font weight */
+    color: var(--clr-dark-cyan); /* Use dark cyan color */
+    font-size: 2em;
+}
+
+/* Apply styles to the original price */
+.real-price {
+    text-decoration: line-through; /* Strikethrough text */
+    font-size: 1.5em;
+}
+
+/* Apply styles to the add to cart button */
+.add-to-cart-btn {
+    display: flex; /* Use flex layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    gap: 1rem; /* Set gap between elements */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Set border radius */
+    color: var(--clr-neutral-white); /* Use neutral white color */
+    font-weight: var(--fw-b); /* Use bold font weight */
+    padding: 1em; /* Set padding */
+    background-color: var(--clr-dark-cyan); /* Use dark cyan background color */
+    width: 100%; /* Set width to 100% */
+}
+
+
+/* Apply styles within a media query for screens with a minimum width of 768 pixels  for tablets and desktops*/
+@media screen and (min-width: 768px) {
+    /* Hide mobile image for tablets and desktop*/
+    .card-img-mobile {
+        display: none;
+    }
+
+    /* Display desktop image */
+    .card-img-desktop {
+        display: block; /* Show desktop image and takes all the width available */
+        border-radius: 10px 0 0 10px; /* Set border radius */
+        width: 100%;
+    }
+
+    /* Adjust layout for card */
+    .card {
+        display: grid; /* Use grid layout */
+        grid-template-columns: 1fr 1fr; /* Two equal width columns */
+    }
+
+    /* Adjust product name margin */
+    .product-name {
+        margin-block: 2rem; /* Set top and bottom margin */
+    }
+
+    /* Adjust product prices margin */
+    .product-prices {
+        margin-block-end: 3rem; /* Set bottom margin */
+    }
 }
