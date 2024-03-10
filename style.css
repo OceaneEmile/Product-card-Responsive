@@ -1,0 +1,20 @@
+/*For all the styles that are not specific to a component I use root*/
+:root {
+    /*font-family*/
+    --font-title: 'Montserrat', serif;
+    --font-text: 'Fraunces', sans-serif;
+
+    /* font-size: */
+    --fw-m : 500;
+    --fw-b : 700;
+
+    /* colors */
+    /* Primary */
+    --clr-dark-cyan: hsl(158, 36%, 37%);
+    --clr-cream: hsl(30, 38%, 92%);
+ 
+    /* Neutral */
+    --clr-neutral-very-dark-blue: hsl(212, 21%, 14%);
+    --clr-neutral-dark-grayish-blue: hsl(228, 12%, 48%);
+    --clr-neutral-white: hsl(0, 0%, 100%);
+}
